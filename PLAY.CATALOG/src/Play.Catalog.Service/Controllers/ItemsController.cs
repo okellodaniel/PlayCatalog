@@ -32,45 +32,62 @@ namespace Play.Catalog.Service.Controllers
         public ItemDto GetById(Guid id)
         {
             var item = items.Where(t => t.Id == id).SingleOrDefault();
+
+            if (item == null)
+            {
+                throw new Exception("Item not found");
+            }
+
             return item;
         }
 
-        // [HttpPost]
-        // public ItemDto Create(ItemDto item)
-        // {
-        //     item.Id = Guid.NewGuid();
-        //     Items.Add(item);
-        //     return item;
-        // }
+        [HttpPost]
+        public ActionResult<ItemDto> Post(CreatedItemDto createdItemDto)
+        {
+            var item = new ItemDto(Guid.NewGuid(), createdItemDto.Name, createdItemDto.Description, createdItemDto.Price, DateTimeOffset.Now);
+            items.Add(item);
 
-        // [HttpPut("{id}")]
-        // public ItemDto Update(Guid id, ItemDto item)
-        // {
-        //     var itemToUpdate = Items.FirstOrDefault(x => x.Id == id);
-        //     if (itemToUpdate == null)
-        //     {
-        //         return null;
-        //     }
+            return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
 
-        //     itemToUpdate.Name = item.Name;
-        //     itemToUpdate.Description = item.Description;
-        //     itemToUpdate.Price = item.Price;
-        //     itemToUpdate.CreatedAt = item.CreatedAt;
+        }
 
-        //     return itemToUpdate;
-        // }
+        [HttpPut("{id}")]
+        public IActionResult Update(Guid id, UpdateItemDto updateItemDto)
+        {
+            var existingItem = items.Where(t => t.Id == id).SingleOrDefault();
 
-        // [HttpDelete("{id}")]
-        // public ItemDto Delete(Guid id)
-        // {
-        //     var itemToDelete = Items.FirstOrDefault(x => x.Id == id);
-        //     if (itemToDelete == null)
-        //     {
-        //         return null;
-        //     }
+            if (existingItem == null)
+            {
+                throw new Exception("Item not found");
+            }
 
-        //     Items.Remove(itemToDelete);
-        //     return itemToDelete;
-        // }
+            var updateItem = existingItem with
+            {
+                Name = updateItemDto.Name,
+                Description = updateItemDto.Description,
+                Price = updateItemDto.Price
+            };
+
+            var index = items.FindIndex(existingItem => existingItem.Id == id);
+            items[index] = updateItem;
+            return NoContent();
+        }
+
+        // Delete /Items/{id}   
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
+        {
+            var index = items.FindIndex(x => x.Id == id);
+
+            if (index < 0)
+            {
+                return NotFound();
+            }
+
+            items.RemoveAt(index);
+
+            return NoContent();
+        }
     }
 }

@@ -22,7 +22,6 @@
 /home/dani/Documents/Microservices/PLAY.CATALOG/src/Play.Catalog.Service/obj/Debug/net5.0/staticwebassets/Play.Catalog.Service.StaticWebAssets.xml
 /home/dani/Documents/Microservices/PLAY.CATALOG/src/Play.Catalog.Service/obj/Debug/net5.0/scopedcss/bundle/Play.Catalog.Service.styles.css
 /home/dani/Documents/Microservices/PLAY.CATALOG/src/Play.Catalog.Service/obj/Debug/net5.0/Play.Catalog.Service.RazorTargetAssemblyInfo.cache
-/home/dani/Documents/Microservices/PLAY.CATALOG/src/Play.Catalog.Service/obj/Debug/net5.0/Play.Catalog.Service.csproj.CopyComplete
 /home/dani/Documents/Microservices/PLAY.CATALOG/src/Play.Catalog.Service/obj/Debug/net5.0/Play.Catalog.Service.dll
 /home/dani/Documents/Microservices/PLAY.CATALOG/src/Play.Catalog.Service/obj/Debug/net5.0/ref/Play.Catalog.Service.dll
 /home/dani/Documents/Microservices/PLAY.CATALOG/src/Play.Catalog.Service/obj/Debug/net5.0/Play.Catalog.Service.pdb

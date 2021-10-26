@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GZo18xI4W1hWTVtG7Qm7d0WGWBgWnO9z4TksFiU5iQQfHXkvKkWLjih17bVqMrOFxM+OHOMq+gdLN4MsBSLqGg==",
+  "dgSpecHash": "tCGjnqLLZa0KSICYNNtOgNghiyooTxt1gnEiHqvI34GIyDMMSfvrX3Bdtmyx8sMKMJynWXzH3NVukbLCSr63Xw==",
   "success": true,
   "projectFilePath": "/home/dani/Documents/Microservices/PLAY.CATALOG/src/Play.Catalog.Service/Play.Catalog.Service.csproj",
   "expectedPackageFiles": [

@@ -6,8 +6,7 @@ namespace PLAY.CATALOG.src.Entities
 {
     public class Item
     {
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }

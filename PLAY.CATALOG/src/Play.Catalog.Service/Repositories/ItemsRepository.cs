@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using PLAY.CATALOG.src.Entities;
@@ -25,7 +24,7 @@ namespace Play.Catalog.Service.Repositories
             return await dbCollection.Find(filterBuilder.Empty).ToListAsync();
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Item> GetItemAsync(Guid id)
         {
             FilterDefinition<Item> filter = filterBuilder.Eq(x => x.Id, id);
             return await dbCollection.Find(filter).FirstOrDefaultAsync();
@@ -49,7 +48,7 @@ namespace Play.Catalog.Service.Repositories
             await dbCollection.ReplaceOneAsync(filterBuilder.Eq(t => t.Id, item.Id), item);
         }
 
-        public async Task DeleteAsync(string id)
+        public async Task DeleteAsync(Guid id)
         {
             FilterDefinition<Item> filter = filterBuilder.Eq(x => x.Id, id);
             await dbCollection.DeleteOneAsync(filter);
